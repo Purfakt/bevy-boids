@@ -9,6 +9,6 @@ pub struct MovementPlugin;
 
 impl Plugin for MovementPlugin {
     fn build(&self, app: &mut App) {
-        app.add_system(update_position).add_system(update_rotation);
+        app.add_systems(Update, (update_position, update_rotation));
     }
 }

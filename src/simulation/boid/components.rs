@@ -20,8 +20,7 @@ impl Boid {
             } else {
                 1.
             };
-        let steer = (desired - movement.velocity).clamp_length_max(movement.max_force);
-        steer
+        (desired - movement.velocity).clamp_length_max(movement.max_force)
     }
 
     pub fn align(&self, movement: &Movement, group: &Vec<Vec3>) -> Vec3 {

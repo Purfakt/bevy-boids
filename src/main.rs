@@ -12,8 +12,8 @@ fn main() {
             }),
             ..default()
         }))
-        .add_plugin(SimulationPlugin)
-        .add_startup_system(spawn_camera)
+        .add_plugins(SimulationPlugin)
+        .add_systems(Startup, spawn_camera)
         .run();
 }
 
@@ -23,7 +23,7 @@ pub struct MainCamera;
 fn window_center_transform(window_query: Query<&Window, With<PrimaryWindow>>) -> Transform {
     let window = window_query.get_single().unwrap();
     Transform {
-        translation: Vec3::new(window.width() / 2.0, window.height() / 2.0, 0.0),
+        translation: Vec3::new(window.width() / 2.0, window.height() / 2.0, 100.0),
         ..default()
     }
 }
